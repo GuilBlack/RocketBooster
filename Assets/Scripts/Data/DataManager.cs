@@ -58,15 +58,12 @@ public class DataManager : MonoBehaviour
         m_DataHandler = new FileDataHandler(m_SaveFileName);
         m_GameData = m_DataHandler.LoadGameData();
         
-        Debug.Log(m_GameData);
-
         if (m_GameData == null)
             m_GameData = new GameData();
     }
 
     public void SaveGame()
     {
-        Debug.Log(m_GameData);
         m_DataHandler.Save(m_GameData);
     }
 
@@ -83,12 +80,10 @@ public class DataManager : MonoBehaviour
     public void SaveLevel(LevelData data, int level)
     {
         m_GameData.levelData.SetValue(data, level - 2);
-        Debug.Log(m_GameData.levelData[level - 2]);
     }
 
     private void OnDestroy()
     {
-        Debug.Log("hello");
         SaveGame();
     }
 
