@@ -11,7 +11,7 @@ public class MovingObstacleController : MonoBehaviour
     [SerializeField] Vector2 m_EndPosition;
     [Tooltip("Time it takes to move from the starting position to the ending position and back to starting positon in seconds." +
         "If it's equal to 0, it will not move.")]
-    [SerializeField] [Range(0.0001f, 30)] float m_TimeToMove = 1f;
+    [SerializeField] float m_TimeToMove = 1f;
     Vector3 m_StartPosition;
     Vector3 m_RealEndPosition;
     float m_LerpIteration = 0f;
@@ -32,7 +32,8 @@ public class MovingObstacleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (m_TimeToMove <= 0f)
+            Move();
 
         if (m_RotationSpeed != 0f)
             Rotate();
