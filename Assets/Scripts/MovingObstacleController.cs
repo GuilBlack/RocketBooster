@@ -32,7 +32,7 @@ public class MovingObstacleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_TimeToMove <= 0f)
+        if (m_TimeToMove > 0f)
             Move();
 
         if (m_RotationSpeed != 0f)
